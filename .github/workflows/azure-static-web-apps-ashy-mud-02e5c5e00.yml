@@ -39,6 +39,11 @@ jobs:
     name: Close Pull Request Job
     steps:
       - name: Close Pull Request
+        env:
+            CI: false
+            VITE_SERVER_URL: ${{secrets.VITE_SERVER_URL}}
+            VITE_TOKEN: ${{secrets.VITE_TOKEN}}
+            VITE_CHECK_VALUE: ${{secrets.VITE_CHECK_VALUE}}
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
