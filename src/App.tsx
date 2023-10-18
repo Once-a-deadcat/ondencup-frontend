@@ -7,14 +7,18 @@ import {
   RoomAudioRenderer,
   useTracks
 } from '@livekit/components-react';
-
-// const serverUrl = 'REDACTED';
-// const token = 'REDACTED';
-
-const serverUrl = import.meta.env.VITE_SERVER_URL ?? 'default_server_url';
-const token = import.meta.env.VITE_TOKEN ?? 'default_token';
+import { useEffect } from 'react';
 
 function App() {
+    
+    const serverUrl = import.meta.env.VITE_SERVER_URL ?? 'default_server_url';
+    const token = import.meta.env.VITE_TOKEN ?? 'default_token';
+    const check_env = import.meta.env.VITE_CHECK_VALUE ?? 'default_server_url';
+
+    useEffect(() => {
+        console.log("check_env: " + check_env);
+    });
+
   return (
     <LiveKitRoom
       video={true}
